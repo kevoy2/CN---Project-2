@@ -1,33 +1,56 @@
-//Import JavaScript Libraries
-// const DOMPurify  = require('dompurify');
-
-// Global Variables
-var n;
-var option;
-var result = 0;
-
-// A function to retrieve html form data.
-function retrieve() {
-    n = document.getElementById('input').value;
-    result = calculate(n);
-    display();
-}
-
-// A function to retrieve html form data.
-function display() {
-    var one = document.getElementById('n');
-    one.innerHTML = n;
-    var two = document.getElementById('answer');
-    two.innerHTML = result;
-}
-
-// Function to calculate the fibonaci number indicated by the website user.
-function calculate(x) {
-    if(x == 0) {
-        return 0;
-    } else if(x == 1) {
-        return 1;
-    } else {
-        return calculate(x - 1) + calculate(x - 2);
+document.addEventListener('DOMContentLoaded', function() {
+    var n;
+    var y=0;
+    var calcButton=document.getElementById('calc');
+    calcButton.addEventListener('click', () => {
+        retr();
+    });
+    function retr(){
+        n=document.getElementById('di').value;
+        y=calc(n);
+        disp();
+        save();
     }
-}
+    function disp(){
+        var one=document.getElementById('n');
+        one.innerHTML=n;
+        var two=document.getElementById('answer');
+        two.innerHTML=y;
+    }
+    function calc(x){
+        if(x<=0){
+            return 0;
+        }else if(x==1){
+            return 1;
+        }else{
+            return calc(x-1)+calc(x-2);
+        }
+    }
+    async function save() {
+        try {
+            n=DOMPurify.sanitize(n);
+            y=DOMPurify.sanitize(y);
+            const response = await fetch('http://localhost:3000/save-calculation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    x: n,
+                    y: y
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to save calculation');
+            }
+
+            const data = await response.json();
+            console.log('Saved to calculations:', data); 
+        } catch (error) {
+            console.error('Error saving calculation:', error);
+            alert('Error saving to calculations');
+        }
+    }
+});

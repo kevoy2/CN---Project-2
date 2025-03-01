@@ -3,7 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<title> CN - Project </title>
-        <script type="text/javascript" src="./script.js"></script>
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
         <!--Header Box-->
@@ -16,13 +16,14 @@
 		<div class="content">
             <h3>Fibonacci Query:</h3>
             Enter the value of N for the Fibonacci calculation (Note, the input must be a number):<br>
-            N = <input name="fibonacci" type="number" value="0" min="0" id="input"> 
+            N = <input name="fibonacci" id="di" type="number" value="0" min="0" oninput="this.value=Math.abs(this.value)"> 
             <p>  
-            <button onclick="retrieve()">Calculate</button> 
+            <button id="calc">Calculate</button> 
             <hr>
             <h3>Result:</h3>
-            <div onload="display()" id="result">F(<span id="n">N</span>) = <span id="answer">???</span></div>
+            <div id="result">F(<span id="n">N</span>) = <span id="answer">???</span></div>
             <br>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
 	</body>
 </html>

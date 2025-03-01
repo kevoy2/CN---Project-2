@@ -4,6 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<title> CN - Project </title>
 		<script type="text/javascript" src="script.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 	<body>
         <!--Header Box-->
@@ -15,10 +16,14 @@
 		<!--Content Box-->
 		<div class="content">
             <h3>Fibonacci Query:</h3>
-            Enter the value of N for the Fibonacci calculation (Note, the input must be a number):<br>
-            N = <input name="fibonacci" id="di" type="number" value="0" min="0" oninput="this.value=Math.abs(this.value)"> 
-            <p>  
-            <button id="calc">Calculate</button> 
+			<form id="calc">
+				Enter the value of N for the Fibonacci calculation (Note, the input must be a number):<br>
+				N = <input name="x" id="di" type="number" value="0" min="0" oninput="this.value=Math.abs(this.value)"> 
+				<p>  
+				<div class="g-recaptcha" data-sitekey="6Ldg-uUqAAAAAKRfBGicEuJPM18Ou8OllcqDBKLS"></div>
+				<p>
+				<input type="submit" value="Calculate"></input> 
+			</form>
             <hr>
             <h3>Result:</h3>
             <div id="result">F(<span id="n">N</span>) = <span id="answer">???</span></div>

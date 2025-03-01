@@ -1,1 +1,29 @@
-*{font-family:sans-serif;}body{background-color:#38aaaa;padding:10px;}.header{position:relative;border:10px outset #D3D3D3;background-color:white;}.name{position:relative;text-align:center;}.content{position:relative;background-color:white;height:80%;top:10px;bottom:170px;}#n{color:blue;}#answer{color:blueviolet;}
+* {
+  font-family: sans-serif;
+}
+body {
+  background-color: #38aaaa;
+  padding: 10px;
+}
+.header {
+  position: relative;
+  border: 10px outset #d3d3d3;
+  background-color: white;
+}
+.name {
+  position: relative;
+  text-align: center;
+}
+.content {
+  position: relative;
+  background-color: white;
+  height: 80%;
+  top: 10px;
+  bottom: 170px;
+}
+#n {
+  color: blue;
+}
+#answer {
+  color: blueviolet;
+}

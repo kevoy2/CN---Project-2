@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formObj[key] = value;
       });
       const captaRes = grecaptcha.getResponse();
-      const response = await fetch("http://localhost:3000/save-calculation", {
+      const response = await fetch("https://cn-project-2-backend.vercel.app/save-calculation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

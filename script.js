@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   calcForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const captchaResponse = grecaptcha.getResponse();
-    // if(!captchaResponse.lenght > 0) {
-    //   throw new Error("reCaptcha is not complete!!!")
-    // }
+    if(!captchaResponse.lenght > 0) {
+      throw new Error("reCaptcha is not complete!!!")
+    }
     retr(new FormData(e.target));
   });
   function retr(body) {
